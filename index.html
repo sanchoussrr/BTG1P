@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BorschToGo – Ukrainian Food for Global Good</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: flex-start;
+      padding: 28px 48px;
+    }
+
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f5c842;
+      line-height: 1.3;
+      max-width: 120px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      filter: brightness(0.62);
+    }
+
+    /* Fallback gradient if no image */
+    .hero-bg-fallback {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #2c1a0e 0%, #5a2d1a 40%, #1a3040 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bowl-placeholder {
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at 40% 35%, #c0392b 0%, #7b1c1c 60%, #3d0e0e 100%);
+      border-radius: 50% 50% 45% 45%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0 48px 52px;
+      background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 100%);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.5rem);
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      font-weight: 400;
+      color: #f5c842;
+      font-style: italic;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 64px 48px 48px;
+    }
+
+    .content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #1b3a6b;
+      margin-bottom: 28px;
+    }
+
+    .content p {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    /* ── CTA LINK ── */
+    .cta-link {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #c8860a;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .cta-link:hover { border-color: #c8860a; }
+
+    /* ── PROGRAMME CARDS STRIP ── */
+    .programmes {
+      display: flex;
+      gap: 0;
+      overflow: hidden;
+      margin-top: 24px;
+      border-radius: 4px;
+      max-width: 340px;
+    }
+
+    .programme-card {
+      width: 110px;
+      height: 90px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ukrainian flag brush-stroke cards */
+    .card-blue {
+      background: linear-gradient(135deg, #005bbb 30%, #0072d9 100%);
+    }
+    .card-yellow {
+      background: linear-gradient(135deg, #f5c842 30%, #e8a800 100%);
+    }
+    .card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    /* Arrow indicator */
+    .arrow-btn {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      width: 28px;
+      height: 28px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 60px;
+      padding: 32px 48px;
+      background: #1b3a6b;
+      color: #fff;
+      font-size: 0.8rem;
+      text-align: center;
+      opacity: 0.9;
+    }
+    footer a { color: #f5c842; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Using a free Unsplash borsch image; replace src with your own photo -->
+    <img
+      class="hero-bg"
+      src="https://img.freepik.com/free-photo/traditional-ukrainian-borscht-with-slices-brown-bread-soft-drink_140725-9202.jpg?semt=ais_hybrid&w=740&q=80"
+      alt="Bowl of borsch"
+      onerror="this.style.display='none'; document.querySelector('.hero-bg-fallback').style.display='flex';"
+    />
+    <div class="hero-bg-fallback" style="display:none; position:absolute; inset:0;">
+      <div class="hero-bowl-placeholder"></div>
+    </div>
+
+    <nav>
+      <div class="nav-brand">Borsch<br/>Foundation</div>
+    </nav>
+
+    <div class="hero-overlay">
+      <h1 class="hero-title">Borsch for Good</h1>
+      <p class="hero-subtitle">Ukrainian Food for Global Good</p>
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <h2>Welcome to BorschToGo</h2>
+
+    <p>
+      We are a UK-based community interest company dedicated to post-conflict
+      reconstruction in Ukraine and worldwide. We deliver our mission by harnessing
+      Ukrainian food for global good. Through the universal language of food, culture
+      and shared tables, we bring people together to help rebuild lives and
+      communities. From a simple bowl of borsch to strategic global partnerships,
+      every connection we make helps turn compassion into sustainable impact.
+    </p>
+
+    <p>
+      We are grateful for your visit to our site. We look forward to working with you to
+      deliver real, sustainable impacts. On these pages, you will find many ways to
+      connect with us. A very warm welcome awaits.
+    </p>
+
+    <a href="#programmes" class="cta-link">Explore Our 2026 Programmes</a>
+
+    <!-- Programme image strip -->
+    <div class="programmes" id="programmes">
+      <div class="programme-card" style="position:relative;">
+        <img
+          class="card-img"
+          src="UKRAINE.png"
+          alt="Ukraine"
+        />
+        <div class="arrow-btn">›</div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
